@@ -2,12 +2,12 @@ import React from 'react';
 import { MemoryRouter as Router, Switch, Route } from 'react-router-dom';
 import icon from '../../assets/icon.svg';
 import './App.global.css';
-import Counter from './container/Counter/Counter';
+import Counter from './containers/Counter';
 
-const Hello = () => {
+const Home = () => {
   return (
     <div>
-      <div className="Hello">
+      <div className="Home">
         <img width="200px" alt="icon" src={icon} />
       </div>
       <Counter />
@@ -19,7 +19,7 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" component={Hello} />
+        <Route path="/" component={Home} />
       </Switch>
     </Router>
   );
