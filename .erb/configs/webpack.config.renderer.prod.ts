@@ -5,12 +5,20 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import { merge } from 'webpack-merge';
 import TerserPlugin from 'terser-webpack-plugin';
 import baseConfig from './webpack.config.base';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import webpackPaths from './webpack.paths';
 import checkNodeEnv from '../scripts/check-node-env';
 import deleteSourceMaps from '../scripts/delete-source-maps';
@@ -40,6 +48,8 @@ export default merge(baseConfig, {
 
   output: {
     path: webpackPaths.distRendererPath,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     publicPath: './',
     filename: 'renderer.js',
     library: {
@@ -52,6 +62,8 @@ export default merge(baseConfig, {
       {
         // CSS/SCSS
         test: /\.s?css$/,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -69,6 +81,8 @@ export default merge(baseConfig, {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'url-loader',
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           options: {
             limit: 10000,
             mimetype: 'application/font-woff',
@@ -80,6 +94,8 @@ export default merge(baseConfig, {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'url-loader',
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           options: {
             limit: 10000,
             mimetype: 'application/font-woff',
@@ -91,6 +107,8 @@ export default merge(baseConfig, {
         test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'url-loader',
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           options: {
             limit: 10000,
             mimetype: 'font/otf',
@@ -102,6 +120,8 @@ export default merge(baseConfig, {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'url-loader',
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           options: {
             limit: 10000,
             mimetype: 'application/octet-stream',
@@ -111,6 +131,8 @@ export default merge(baseConfig, {
       // EOT Font
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         use: 'file-loader',
       },
       // SVG Font
@@ -118,6 +140,8 @@ export default merge(baseConfig, {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'url-loader',
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           options: {
             limit: 10000,
             mimetype: 'image/svg+xml',
@@ -127,6 +151,8 @@ export default merge(baseConfig, {
       // Common Image Formats
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         use: 'url-loader',
       },
     ],

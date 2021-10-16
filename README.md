@@ -1,5 +1,5 @@
 <h4>
-  Based on the amazing <a href="https://electron-react-boilerplate.js.org/">Electron React Boilerplate</a>. Also using <a href="https://redux-toolkit.js.org/">redux-toolkit</a> and <a href="https://tailwindcss.com/">tailwindcss</a>.
+  Based on the amazing <a href="https://electron-react-boilerplate.js.org/">Electron React Boilerplate</a>. Also using <a href="https://redux-toolkit.js.org/">Redux Toolkit</a> and <a href="https://tailwindcss.com/">tailwindcss</a>.
 </h4>
 
 <br>

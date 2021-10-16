@@ -3,7 +3,11 @@
  */
 
 import webpack from 'webpack';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import webpackPaths from './webpack.paths';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { dependencies as externals } from '../../release/app/package.json';
 
 export default {

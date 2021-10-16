@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+/* @ts-ignore */
 import path from 'path';
 import fs from 'fs';
 import webpack from 'webpack';
@@ -5,10 +7,14 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import chalk from 'chalk';
 import { merge } from 'webpack-merge';
 import { spawn, execSync } from 'child_process';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import baseConfig from './webpack.config.base';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import webpackPaths from './webpack.paths';
 import checkNodeEnv from '../scripts/check-node-env';
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 
 // When an ESLint server is running, we can't set the NODE_ENV so we'll check if it's
 // at the dev webpack config is not accidentally run in a production environment
@@ -18,6 +24,8 @@ if (process.env.NODE_ENV === 'production') {
 
 const port = process.env.PORT || 1212;
 const manifest = path.resolve(webpackPaths.dllPath, 'renderer.json');
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 const requiredByDLLConfig = module.parent.filename.includes(
   'webpack.config.renderer.dev.dll'
 );
@@ -54,6 +62,8 @@ export default merge(baseConfig, {
 
   output: {
     path: webpackPaths.distRendererPath,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     publicPath: '/',
     filename: 'renderer.dev.js',
     library: {
@@ -65,6 +75,8 @@ export default merge(baseConfig, {
     rules: [
       {
         test: /\.global\.css$/,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         use: [
           {
             loader: 'style-loader',
@@ -79,6 +91,8 @@ export default merge(baseConfig, {
       },
       {
         test: /^((?!\.global).)*\.css$/,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         use: [
           {
             loader: 'style-loader',
@@ -98,6 +112,8 @@ export default merge(baseConfig, {
       // SASS support - compile all .global.scss files and pipe it to style.css
       {
         test: /\.global\.(scss|sass)$/,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         use: [
           {
             loader: 'style-loader',
@@ -116,6 +132,8 @@ export default merge(baseConfig, {
       // SASS support - compile all other .scss files and pipe it to style.css
       {
         test: /^((?!\.global).)*\.(scss|sass)$/,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         use: [
           {
             loader: 'style-loader',
@@ -143,6 +161,8 @@ export default merge(baseConfig, {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'url-loader',
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           options: {
             limit: 10000,
             mimetype: 'application/font-woff',
@@ -154,6 +174,8 @@ export default merge(baseConfig, {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'url-loader',
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           options: {
             limit: 10000,
             mimetype: 'application/font-woff',
@@ -165,6 +187,8 @@ export default merge(baseConfig, {
         test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'url-loader',
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           options: {
             limit: 10000,
             mimetype: 'font/otf',
@@ -176,6 +200,8 @@ export default merge(baseConfig, {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'url-loader',
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           options: {
             limit: 10000,
             mimetype: 'application/octet-stream',
@@ -185,6 +211,8 @@ export default merge(baseConfig, {
       // EOT Font
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         use: 'file-loader',
       },
       // SVG Font
@@ -192,6 +220,8 @@ export default merge(baseConfig, {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'url-loader',
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           options: {
             limit: 10000,
             mimetype: 'image/svg+xml',
@@ -201,11 +231,15 @@ export default merge(baseConfig, {
       // Common Image Formats
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         use: 'url-loader',
       },
     ],
   },
   plugins: [
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     requiredByDLLConfig
       ? null
       : new webpack.DllReferencePlugin({
@@ -213,7 +247,8 @@ export default merge(baseConfig, {
           manifest: require(manifest),
           sourceType: 'var',
         }),
-
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     new webpack.NoEmitOnErrorsPlugin(),
 
     /**
@@ -231,13 +266,16 @@ export default merge(baseConfig, {
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
     }),
-
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     new webpack.LoaderOptionsPlugin({
       debug: true,
     }),
-
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     new ReactRefreshWebpackPlugin(),
-
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     new HtmlWebpackPlugin({
       filename: path.join('index.html'),
       template: path.join(webpackPaths.srcRendererPath, 'index.ejs'),
@@ -277,6 +315,8 @@ export default merge(baseConfig, {
         env: process.env,
         stdio: 'inherit',
       })
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         .on('close', (code) => process.exit(code))
         .on('error', (spawnError) => console.error(spawnError));
     },

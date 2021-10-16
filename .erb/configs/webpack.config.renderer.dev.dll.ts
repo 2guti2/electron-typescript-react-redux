@@ -6,6 +6,8 @@ import webpack from 'webpack';
 import path from 'path';
 import { merge } from 'webpack-merge';
 import baseConfig from './webpack.config.base';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import webpackPaths from './webpack.paths';
 import { dependencies } from '../../package.json';
 import checkNodeEnv from '../scripts/check-node-env';
@@ -38,12 +40,16 @@ export default merge(baseConfig, {
     path: dist,
     filename: '[name].dev.dll.js',
     library: {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       name: 'renderer',
       type: 'var',
     },
   },
 
   plugins: [
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     new webpack.DllPlugin({
       path: path.join(dist, '[name].json'),
       name: '[name]',
@@ -62,6 +68,8 @@ export default merge(baseConfig, {
       NODE_ENV: 'development',
     }),
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     new webpack.LoaderOptionsPlugin({
       debug: true,
       options: {

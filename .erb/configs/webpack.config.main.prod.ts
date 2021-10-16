@@ -6,8 +6,12 @@ import path from 'path';
 import webpack from 'webpack';
 import { merge } from 'webpack-merge';
 import TerserPlugin from 'terser-webpack-plugin';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import baseConfig from './webpack.config.base';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import webpackPaths from './webpack.paths';
 import checkNodeEnv from '../scripts/check-node-env';
 import deleteSourceMaps from '../scripts/delete-source-maps';
@@ -36,6 +40,8 @@ export default merge(baseConfig, {
 
   output: {
     path: webpackPaths.distMainPath,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     filename: '[name].js',
   },
 
